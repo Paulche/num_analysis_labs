@@ -1,8 +1,7 @@
-function r = iter(A,b,x)
+function [B c] = iter(A,b)
   %
   % x = B*x + c
   %
-
   len = length(A);
 
   B = zeros(len);
@@ -13,5 +12,4 @@ function r = iter(A,b,x)
     B(i,i) = 0;
   end
 
-  r = B * x + c;
 end

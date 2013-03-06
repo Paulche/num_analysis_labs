@@ -57,16 +57,19 @@ function action()
   legend(H, arrayfun(@(x)(sprintf('x%d',x)),1:7,'UniformOutput',false));
   ylabel('Seidel method','fontsize',20,'fontweight','b');
 
-  A, b, exact
+  A, b
 
   % Errors
-  iter_error, norm(iter_error,1), seidel_error, norm(seidel_error)
+  iter_error, norm(iter_error), seidel_error, norm(seidel_error)
 
   % Output iter values
-  iter_solution, iter_residual, iter_norm_residual
+  iter_residual, iter_norm_residual
 
   % Output seidel values
-  seidel_solution, seidel_residual, seidel_norm_residual
+  seidel_residual, seidel_norm_residual
 
   rel_error
+
+  % Results
+  seidel_solution, iter_solution, exact
 end
