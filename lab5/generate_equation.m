@@ -52,5 +52,5 @@ function [A b] = generate_equation(group, num)
     A=0.08*A;
   end
 
-  A=0.5*A+2.75*diag(diag(A));
+  A=0.5*A+5*diag(diag(A));
 end

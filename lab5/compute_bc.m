@@ -1,4 +1,4 @@
-function [B c] = iter(A,b)
+function [B c] = compute_bc(A,b)
   %
   % x = B*x + c
   %

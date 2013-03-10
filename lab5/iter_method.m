@@ -1,13 +1,19 @@
-function [solution serial] = iter_method(A,b,x,n)
+function [solution conv serial] = iter_method(A,b,x,n)
   r = x;
-  serial = [];
-  serial(1,:) = x;
+  serial = transp(x);
 
-  [B c] = iter(A,b);
+  [B c] = compute_bc(A,b);
+
+  % Check convergency
+  if norm(B) < 1
+    conv = true;
+  else
+    conv = false;
+  end
 
   for i = 1:n
     x = B * x + c;
-    serial(i+1,:) = x;
+    serial = [serial; transp(x)];
   end
 
   solution = x;
