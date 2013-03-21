@@ -9,6 +9,5 @@ function action()
   nsolution = n_solve(15,1.1)
   fzero_solution = fzero(f,[1 2])
   
-  derror = abs(dsolution - fzero_solution)
-  nerror = abs(nsolution - fzero_solution)
+  derror = abs(
 end

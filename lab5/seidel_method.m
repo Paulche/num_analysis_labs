@@ -1,5 +1,5 @@
 function [solution conv serial] = seidel_method(A,b,x,n)
-  serial = transp(x);
+  serial = x';
   len = length(x);
 
   [B c] = compute_bc(A, b);
@@ -19,7 +19,7 @@ function [solution conv serial] = seidel_method(A,b,x,n)
     for i = 1:len
       x(i) = (b(i) - sum(A(i,1:i-1)*x(1:i-1)) - sum(A(i,i+1:end)*x(i+1:end))) / A(i,i);
     end
-    serial = [ serial; transp(x) ];
+    serial = [ serial; x' ];
   end
 
   solution = x;
