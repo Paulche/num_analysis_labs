@@ -1,0 +1,15 @@
+function y = mapprox(x,p)
+  y = [];
+  
+  for i = 1:size(x)
+    vector = [];
+    for j = 
+      vector = [vector;x(i)^ ]
+    vector = x(i).^(size-1):-x(i):x(i)
+
+    r = p(1:(size-1)).*vector;
+    y = [y r];
+  end
+
+  y = y + p(size);
+end
