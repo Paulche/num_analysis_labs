@@ -1,10 +1,23 @@
-function r = poly(x,y)
+function r = poly(x,y,n)
   A = [];
 
   for i = 1:length(x)
-    A(i,:) = [1 x(i)^3 x(i)^5 x(i)^7];
+    A(i,1) = 1;
+
+    for j = 2:n
+      A(i,j) = x(i)^j;
+    end
   end
 
   b = ((A'*A)^-1*A')*y';
-  r = b(1) + b(2)*x.^3 + b(3)*x.^5 + b(4)*x.^7;
+
+  for i = 1:length(x)
+    t = b(1);
+
+    for j = 2:n
+      t = t + b(j)*x(i)^j;
+    end
+
+    r(i) = t;
+  end
 end
