@@ -15,7 +15,7 @@ function r = poly(x,y,n)
     t = b(1);
 
     for j = 2:n
-      t = t + b(j)*x(i)^(j-1);
+      t = t + b(j)*x(i)^j;
     end
 
     r(i) = t;
