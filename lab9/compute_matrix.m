@@ -1,5 +1,5 @@
 function [a b c F M] = compute_matrix()
-  [x p q k a b t n f] = linput;
+  [x p q k f0 fn t n f] = linput;
 
   a = [];
   b = [k(1) - k(2)/t];
@@ -22,6 +22,9 @@ function [a b c F M] = compute_matrix()
   for i = 1:(n+1)
     F(i,1) = f(x(1) + (i-1)*t);
   end
+  F(1,1)    = f0;
+  F(n+1,1)  = fn;
+
 
   M(1,1) = b(1);
   M(1,2) = c(1);
